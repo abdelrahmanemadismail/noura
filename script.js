@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
   const fullscreenBtn = document.getElementById('fullscreen-btn');
-  const printBtn = document.getElementById('print-btn');
   const slideDots = document.querySelectorAll('.slide-dot');
   
   // Lightbox Modal Elements
@@ -154,13 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (fullscreenBtn) {
     fullscreenBtn.addEventListener('click', toggleFullscreen);
-  }
-
-  // Print Portfolio Handler
-  if (printBtn) {
-    printBtn.addEventListener('click', () => {
-      window.print();
-    });
   }
 
   // Material Filter Handler for Slide 7
