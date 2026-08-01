@@ -11,9 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const slideCounter = document.getElementById('slide-counter');
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
-  const toggleViewBtn = document.getElementById('toggle-view-btn');
   const fullscreenBtn = document.getElementById('fullscreen-btn');
+  const printBtn = document.getElementById('print-btn');
+  const slideDots = document.querySelectorAll('.slide-dot');
   
+  // Lightbox Modal Elements
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxOverlay = document.getElementById('lightbox-overlay');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+
+  // Shortcuts Modal Elements
+  const shortcutsBtn = document.getElementById('shortcuts-btn');
+  const shortcutsModal = document.getElementById('shortcuts-modal');
+  const shortcutsOverlay = document.getElementById('shortcuts-overlay');
+  const shortcutsClose = document.getElementById('shortcuts-close');
+
+  // Toast Notification
+  const toastNotification = document.getElementById('toast-notification');
+  const toastMessage = document.getElementById('toast-message');
+
+  // Email Copy Buttons
+  const headerCopyEmailBtn = document.getElementById('header-copy-email-btn');
+  const copyEmailBtn = document.getElementById('copy-email-btn');
+
   // Update Active Slide Display
   function goToSlide(slideIndex) {
     if (slideIndex < 1) slideIndex = 1;
@@ -25,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const index = parseInt(slide.getAttribute('data-slide-index'), 10);
       if (index === currentSlide) {
         slide.classList.add('active');
-        // Scroll inside slide to top
         const content = slide.querySelector('.slide-content');
         if (content) content.scrollTop = 0;
       } else {
@@ -33,7 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
-    // Update counter and progress bar
+    // Update Slide Dots
+    slideDots.forEach((dot) => {
+      const dotSlide = parseInt(dot.getAttribute('data-slide'), 10);
+      if (dotSlide === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+    
+    // Update Counter & Progress Bar
     if (slideCounter) {
       slideCounter.textContent = `${currentSlide} / ${totalSlides}`;
     }
@@ -62,11 +93,34 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+  // Slide Dot Click Handlers
+  slideDots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const slideNum = parseInt(dot.getAttribute('data-slide'), 10);
+      if (slideNum) goToSlide(slideNum);
+    });
+  });
   
   // Keyboard Navigation Support
   document.addEventListener('keydown', (e) => {
-    // Disable slide key shortcuts if typing in input
+    // If input active, skip key handlers
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    
+    // Escape key closes modals
+    if (e.key === 'Escape') {
+      closeLightbox();
+      closeShortcutsModal();
+      return;
+    }
+
+    if (e.key === '?') {
+      toggleShortcutsModal();
+      return;
+    }
+    
+    if (lightboxModal && lightboxModal.classList.contains('active')) return;
+    if (shortcutsModal && shortcutsModal.classList.contains('active')) return;
     
     if (e.key === 'ArrowRight' || e.key === 'Space' || e.key === 'PageDown') {
       e.preventDefault();
@@ -82,31 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
       goToSlide(totalSlides);
     } else if (e.key.toLowerCase() === 'f') {
       toggleFullscreen();
-    } else if (e.key.toLowerCase() === 'g') {
-      toggleViewMode();
     }
   });
-  
-  // Toggle Presentation Mode vs Grid / Overview Mode
-  let isGridMode = false;
-  function toggleViewMode() {
-    isGridMode = !isGridMode;
-    document.body.classList.toggle('mode-grid', isGridMode);
-    
-    if (toggleViewBtn) {
-      toggleViewBtn.innerHTML = isGridMode
-        ? '<i class="ph ph-slideshow"></i> Slide Mode'
-        : '<i class="ph ph-squares-four"></i> Grid View';
-    }
-    
-    if (!isGridMode) {
-      goToSlide(currentSlide);
-    }
-  }
-  
-  if (toggleViewBtn) {
-    toggleViewBtn.addEventListener('click', toggleViewMode);
-  }
   
   // Fullscreen Toggle
   function toggleFullscreen() {
@@ -126,11 +157,98 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Print Portfolio Handler
-  const printBtn = document.getElementById('print-btn');
   if (printBtn) {
     printBtn.addEventListener('click', () => {
       window.print();
     });
+  }
+
+  // Material Filter Handler for Slide 7
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const sampleCards = document.querySelectorAll('.sample-card');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      sampleCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Lightbox Modal Logic for Fullscreen Image Viewing
+  const triggers = document.querySelectorAll('.lightbox-trigger');
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const imgSrc = trigger.getAttribute('data-img');
+      const title = trigger.getAttribute('data-title') || 'Image Preview';
+      openLightbox(imgSrc, title);
+    });
+  });
+
+  function openLightbox(src, title) {
+    if (!lightboxModal || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = title;
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    lightboxModal.classList.add('active');
+  }
+
+  function closeLightbox() {
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove('active');
+  }
+
+  if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+
+  // Keyboard Shortcuts Modal Logic
+  function openShortcutsModal() {
+    if (shortcutsModal) shortcutsModal.classList.add('active');
+  }
+
+  function closeShortcutsModal() {
+    if (shortcutsModal) shortcutsModal.classList.remove('active');
+  }
+
+  function toggleShortcutsModal() {
+    if (shortcutsModal) shortcutsModal.classList.toggle('active');
+  }
+
+  if (shortcutsBtn) shortcutsBtn.addEventListener('click', openShortcutsModal);
+  if (shortcutsOverlay) shortcutsOverlay.addEventListener('click', closeShortcutsModal);
+  if (shortcutsClose) shortcutsClose.addEventListener('click', closeShortcutsModal);
+
+  // Copy Email to Clipboard Functionality
+  function copyEmailToClipboard() {
+    const email = 'ehabnoura4@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+      showToast('Email ehabnoura4@gmail.com copied to clipboard!');
+    }).catch(() => {
+      showToast('Failed to copy. Email: ehabnoura4@gmail.com');
+    });
+  }
+
+  if (headerCopyEmailBtn) headerCopyEmailBtn.addEventListener('click', copyEmailToClipboard);
+  if (copyEmailBtn) copyEmailBtn.addEventListener('click', copyEmailToClipboard);
+
+  // Toast Alert Notification
+  function showToast(msg) {
+    if (!toastNotification || !toastMessage) return;
+    toastMessage.textContent = msg;
+    toastNotification.classList.add('active');
+    setTimeout(() => {
+      toastNotification.classList.remove('active');
+    }, 3200);
   }
 
   // Touch Swipe Support for Mobile Presentation
@@ -150,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function handleSwipe() {
-    if (isGridMode) return;
+    if (lightboxModal && lightboxModal.classList.contains('active')) return;
     const swipeThreshold = 50;
     if (touchEndX < touchStartX - swipeThreshold) {
       nextSlide();
