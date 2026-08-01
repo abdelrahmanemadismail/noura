@@ -1091,20 +1091,24 @@ h1, h2, h3, h4, .hero-title, .slide-title {
 .sample-img-wrapper {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 260px;
   overflow: hidden;
-  background: var(--color-sand);
+  background: rgba(13, 92, 70, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
 .sample-img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sample-card:hover .sample-img-wrapper img {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 .zoom-badge {
@@ -1291,18 +1295,22 @@ h1, h2, h3, h4, .hero-title, .slide-title {
 .screenshot-preview {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 260px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   margin-bottom: 1rem;
   border: 1px solid var(--border-light);
+  background: rgba(13, 92, 70, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
 .screenshot-preview img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
 }
 
 .zoom-overlay {
@@ -1755,5 +1763,51 @@ kbd {
 
   .spec-badge {
     font-size: 0.95rem;
+  }
+}
+
+/* Print & PDF Export Styles */
+@media print {
+  .app-header,
+  .nav-controls,
+  .progress-bar-container,
+  .ambient-bg-glow,
+  .ambient-bg-pattern,
+  .filter-tabs,
+  .toast-notification,
+  .modal,
+  .lightbox-modal {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    overflow: visible !important;
+  }
+
+  .slides-wrapper {
+    margin: 0 !important;
+    position: static !important;
+  }
+
+  .slide {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    page-break-after: always;
+    break-after: page;
+    padding: 2cm 1.5cm !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .sample-card, .screenshot-card, .service-card, .stat-card, .method-card, .testimonial-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
   }
 }
