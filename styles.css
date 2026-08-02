@@ -1046,15 +1046,15 @@ h1, h2, h3, h4, .hero-title, .slide-title {
 
 .samples-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1.75rem;
 }
 
 .sample-card {
   position: relative;
   background: var(--bg-card);
   backdrop-filter: blur(12px);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
@@ -1072,14 +1072,14 @@ h1, h2, h3, h4, .hero-title, .slide-title {
 
 .sample-badge {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 12px;
+  left: 12px;
   z-index: 2;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
-  padding: 0.3rem 0.7rem;
+  padding: 0.35rem 0.8rem;
   border-radius: var(--radius-pill);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--color-primary);
   border: 1px solid var(--border-light);
@@ -1091,13 +1091,13 @@ h1, h2, h3, h4, .hero-title, .slide-title {
 .sample-img-wrapper {
   position: relative;
   width: 100%;
-  height: 260px;
+  height: 330px;
   overflow: hidden;
   background: rgba(13, 92, 70, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
 
 .sample-img-wrapper img {
@@ -1295,7 +1295,7 @@ h1, h2, h3, h4, .hero-title, .slide-title {
 .screenshot-preview {
   position: relative;
   width: 100%;
-  height: 260px;
+  height: 320px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   margin-bottom: 1rem;
@@ -1304,7 +1304,7 @@ h1, h2, h3, h4, .hero-title, .slide-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
 
 .screenshot-preview img {
