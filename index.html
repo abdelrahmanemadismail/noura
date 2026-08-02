@@ -19,48 +19,54 @@
 </head>
 <body>
 
-  <!-- Top App Navigation & Controls Header -->
-  <header class="app-header">
-    <div class="brand-badge">
-      <div class="icon"><i class="ph-bold ph-book-open-text"></i></div>
-      <div class="brand-text">
-        <span class="brand-name">Noura Ehab</span>
-        <span class="brand-sub">Teaching Portfolio</span>
+  <!-- Sticky Responsive App Header & Navbar -->
+  <header class="app-header" id="app-header">
+    <div class="header-container">
+      <a href="#home" class="brand-badge">
+        <div class="icon"><i class="ph-bold ph-book-open-text"></i></div>
+        <div class="brand-text">
+          <span class="brand-name">Noura Ehab</span>
+          <span class="brand-sub">Teaching Portfolio</span>
+        </div>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#approach" class="nav-link">Approach</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#materials" class="nav-link">Materials</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="header-controls">
+        <button class="btn btn-soft" id="header-copy-email-btn" title="Copy Email Address">
+          <i class="ph-bold ph-copy"></i> <span class="btn-text">Copy Email</span>
+        </button>
+        <a href="https://wa.me/201225667398" target="_blank" rel="noopener" class="btn btn-primary header-cta">
+          <i class="ph-bold ph-whatsapp-logo"></i> <span>Contact Noura</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="ph-bold ph-list"></i>
+        </button>
       </div>
     </div>
-    
-    <div class="header-controls">
-      <button class="btn btn-soft" id="header-copy-email-btn" title="Copy Email Address">
-        <i class="ph-bold ph-copy"></i> <span class="btn-text">Copy Email</span>
-      </button>
-      <button class="btn" id="shortcuts-btn" title="Keyboard Shortcuts (?)">
-        <i class="ph-bold ph-keyboard"></i> <span class="btn-text">Shortcuts</span>
-      </button>
-      <button class="btn" id="fullscreen-btn" title="Fullscreen Presentation">
-        <i class="ph ph-arrows-out"></i> <span class="btn-text">Fullscreen</span>
-      </button>
-      <a href="https://wa.me/201225667398" target="_blank" rel="noopener" class="btn btn-primary">
-        <i class="ph-bold ph-whatsapp-logo"></i> <span>Contact Noura</span>
-      </a>
-    </div>
   </header>
-
-  <!-- Top Slide Progress Bar -->
-  <div class="progress-bar-container">
-    <div class="progress-bar-fill" id="progress-bar"></div>
-  </div>
 
   <!-- Ambient Decorative Background Spotlights & Grid -->
   <div class="ambient-bg-glow glow-1"></div>
   <div class="ambient-bg-glow glow-2"></div>
   <div class="ambient-bg-pattern"></div>
 
-  <!-- Slides Wrapper Container -->
-  <main class="slides-wrapper">
+  <!-- Main Scrolling Portfolio Container -->
+  <main class="portfolio-main">
 
-    <!-- SLIDE 1: COVER / HERO -->
-    <section class="slide active" data-slide-index="1" id="slide-1">
-      <div class="slide-content">
+    <!-- SECTION 1: HERO / COVER -->
+    <section class="section hero-section" id="home">
+      <div class="container">
         <div class="slide-header-meta">
           <div class="slide-tag"><i class="ph-bold ph-sparkle"></i> Teaching Portfolio</div>
           <div class="status-pill">
@@ -109,14 +115,23 @@
                 <i class="ph-fill ph-globe-hemisphere-west"></i> Online Teaching Worldwide
               </span>
             </div>
+
+            <div class="hero-actions">
+              <a href="https://wa.me/201225667398" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                <i class="ph-bold ph-whatsapp-logo"></i> Book a Free Trial Class
+              </a>
+              <a href="#about" class="btn btn-soft btn-lg">
+                <i class="ph-bold ph-user"></i> Discover My Approach
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 2: ABOUT ME / WHY PARENTS TRUST ME -->
-    <section class="slide" data-slide-index="2" id="slide-2">
-      <div class="slide-content">
+    <!-- SECTION 2: ABOUT ME / WHY PARENTS TRUST ME -->
+    <section class="section" id="about">
+      <div class="container">
         <h2 class="slide-title">Why Parents <span>Trust Me</span></h2>
         <p class="slide-subtitle">Dedicated to inspiring young minds and empowering non-native learners with joyful education.</p>
         
@@ -127,7 +142,7 @@
               <p>"Education is not only about knowledge; it is about inspiring hearts, nourishing faith, and building character."</p>
             </div>
             <p class="about-text">
-              Welcome! Thank you for taking the time to view my portfolio. I am <strong>Noura Ehab</strong>, an Arabic, Quran, and German teacher specialized in teaching non-native speakers of all age groups. With over four years of online teaching experience, my mission is to render language and Quranic learning enjoyable, interactive, and character-building for every child and student.
+              Welcome! Thank you for visiting my portfolio. I am <strong>Noura Ehab</strong>, an Arabic, Quran, and German teacher specialized in teaching non-native speakers of all age groups. With over four years of online teaching experience, my mission is to render language and Quranic learning enjoyable, interactive, and character-building for every child and student.
             </p>
           </div>
           
@@ -157,9 +172,9 @@
       </div>
     </section>
 
-    <!-- SLIDE 3: TEACHING SERVICES -->
-    <section class="slide" data-slide-index="3" id="slide-3">
-      <div class="slide-content">
+    <!-- SECTION 3: TEACHING SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
         <h2 class="slide-title">My Teaching <span>Services</span></h2>
         <p class="slide-subtitle">Comprehensive, structured courses tailored for non-native kids, teens, and beginner adults.</p>
         
@@ -198,9 +213,9 @@
       </div>
     </section>
 
-    <!-- SLIDE 4: TEACHING METHODOLOGY -->
-    <section class="slide" data-slide-index="4" id="slide-4">
-      <div class="slide-content">
+    <!-- SECTION 4: TEACHING METHODOLOGY -->
+    <section class="section" id="approach">
+      <div class="container">
         <h2 class="slide-title">My Interactive <span>Approach</span></h2>
         <p class="slide-subtitle">Proven techniques that turn language learning into an exciting daily journey.</p>
         
@@ -262,9 +277,9 @@
       </div>
     </section>
 
-    <!-- SLIDE 5: EDUCATION & EXPERIENCE -->
-    <section class="slide" data-slide-index="5" id="slide-5">
-      <div class="slide-content">
+    <!-- SECTION 5: EDUCATION & EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
         <div class="slide-tag"><i class="ph-bold ph-graduation-cap"></i> Journey & Credentials</div>
         <h2 class="slide-title">Education & <span>Experience</span></h2>
         <p class="slide-subtitle">A solid academic degree combined with four years of dedicated online teaching practice.</p>
@@ -309,9 +324,9 @@
       </div>
     </section>
 
-    <!-- SLIDE 6: LANGUAGES & SKILLS -->
-    <section class="slide" data-slide-index="6" id="slide-6">
-      <div class="slide-content">
+    <!-- SECTION 6: LANGUAGES & SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
         <h2 class="slide-title">Languages & <span>Core Skills</span></h2>
         <p class="slide-subtitle">Equipped with native fluency, multilingual ability, and modern educational tech tools.</p>
         
@@ -324,21 +339,21 @@
                   <span class="lang-name">Arabic 🇪🇬 (Native)</span>
                   <span class="lang-pct">100%</span>
                 </div>
-                <div class="lang-bar"><div class="lang-fill" style="width: 100%;"></div></div>
+                <div class="lang-bar"><div class="lang-fill" data-width="100%" style="width: 0%;"></div></div>
               </div>
               <div class="lang-item">
                 <div class="lang-header">
                   <span class="lang-name">German 🇩🇪 (Very Good - A2+)</span>
                   <span class="lang-pct">85%</span>
                 </div>
-                <div class="lang-bar"><div class="lang-fill" style="width: 85%;"></div></div>
+                <div class="lang-bar"><div class="lang-fill" data-width="85%" style="width: 0%;"></div></div>
               </div>
               <div class="lang-item">
                 <div class="lang-header">
                   <span class="lang-name">English 🇬🇧 (Conversational)</span>
                   <span class="lang-pct">75%</span>
                 </div>
-                <div class="lang-bar"><div class="lang-fill" style="width: 75%;"></div></div>
+                <div class="lang-bar"><div class="lang-fill" data-width="75%" style="width: 0%;"></div></div>
               </div>
             </div>
           </div>
@@ -360,9 +375,9 @@
       </div>
     </section>
 
-    <!-- SLIDE 7: SAMPLE MATERIALS -->
-    <section class="slide" data-slide-index="7" id="slide-7">
-      <div class="slide-content">
+    <!-- SECTION 7: SAMPLE MATERIALS -->
+    <section class="section" id="materials">
+      <div class="container">
         <h2 class="slide-title">Sample <span>Teaching Materials</span></h2>
         <p class="slide-subtitle">Authentic lesson reports, custom worksheets, and interactive cards created by Noura. <em>Click any card to view in high resolution.</em></p>
         
@@ -443,9 +458,9 @@
       </div>
     </section>
 
-    <!-- SLIDE 8: TESTIMONIALS -->
-    <section class="slide" data-slide-index="8" id="slide-8">
-      <div class="slide-content">
+    <!-- SECTION 8: TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="container">
         <div class="slide-tag"><i class="ph-bold ph-heart"></i> Client Satisfaction</div>
         <h2 class="slide-title">What Parents <span>Say</span></h2>
         <p class="slide-subtitle">Heartfelt reviews & authentic WhatsApp feedback from student families across Germany & Europe.</p>
@@ -537,9 +552,9 @@
       </div>
     </section>
 
-    <!-- SLIDE 9: THANK YOU & CONTACT -->
-    <section class="slide" data-slide-index="9" id="slide-9">
-      <div class="slide-content">
+    <!-- SECTION 9: THANK YOU & CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
         <h2 class="slide-title">Let's Start Your <span>Learning Journey</span></h2>
         
         <div class="contact-layout">
@@ -615,31 +630,51 @@
 
   </main>
 
-  <!-- Bottom Floating Presentation Controls Bar -->
-  <div class="nav-controls">
-    <button class="nav-btn" id="prev-btn" title="Previous Slide (Left Arrow)">
-      <i class="ph-bold ph-caret-left"></i>
-    </button>
-    
-    <!-- Interactive Slide Dots Indicator -->
-    <div class="slide-dots" id="slide-dots">
-      <button class="slide-dot active" data-slide="1" title="Slide 1: Cover"></button>
-      <button class="slide-dot" data-slide="2" title="Slide 2: About Me"></button>
-      <button class="slide-dot" data-slide="3" title="Slide 3: Services"></button>
-      <button class="slide-dot" data-slide="4" title="Slide 4: Approach"></button>
-      <button class="slide-dot" data-slide="5" title="Slide 5: Credentials"></button>
-      <button class="slide-dot" data-slide="6" title="Slide 6: Skills"></button>
-      <button class="slide-dot" data-slide="7" title="Slide 7: Showcase"></button>
-      <button class="slide-dot" data-slide="8" title="Slide 8: Reviews"></button>
-      <button class="slide-dot" data-slide="9" title="Slide 9: Contact"></button>
+  <!-- Modern Page Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#home" class="brand-badge">
+          <div class="icon"><i class="ph-bold ph-book-open-text"></i></div>
+          <div class="brand-text">
+            <span class="brand-name">Noura Ehab</span>
+            <span class="brand-sub">Arabic, Quran & German Teacher</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Teaching Arabic, Quran & German with love, patience, and professionalism for non-native speakers worldwide.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Methodology</a></li>
+          <li><a href="#experience">Credentials</a></li>
+          <li><a href="#materials">Materials</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Get In Touch</h4>
+        <p><i class="ph-fill ph-envelope-simple"></i> ehabnoura4@gmail.com</p>
+        <p><i class="ph-fill ph-whatsapp-logo"></i> +20 122 566 7398</p>
+        <p><i class="ph-fill ph-globe-hemisphere-west"></i> Online Teaching Worldwide</p>
+      </div>
     </div>
 
-    <div class="slide-counter" id="slide-counter">1 / 9</div>
-    
-    <button class="nav-btn" id="next-btn" title="Next Slide (Right Arrow or Space)">
-      <i class="ph-bold ph-caret-right"></i>
-    </button>
-  </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Noura Ehab. All rights reserved. | Professional Teaching Portfolio</p>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" title="Back to top" aria-label="Back to top">
+    <i class="ph-bold ph-caret-up"></i>
+  </button>
 
   <!-- Interactive Lightbox Modal Container for Fullscreen Image Viewing -->
   <div class="lightbox-modal" id="lightbox-modal">
@@ -649,22 +684,6 @@
       <h3 class="lightbox-title" id="lightbox-title">Image Details</h3>
       <div class="lightbox-img-wrapper">
         <img src="" alt="" id="lightbox-img">
-      </div>
-    </div>
-  </div>
-
-  <!-- Keyboard Shortcuts Modal -->
-  <div class="modal" id="shortcuts-modal">
-    <div class="modal-overlay" id="shortcuts-overlay"></div>
-    <div class="modal-card">
-      <button class="modal-close" id="shortcuts-close"><i class="ph-bold ph-x"></i></button>
-      <h3><i class="ph-bold ph-keyboard"></i> Presentation Shortcuts</h3>
-      <div class="shortcuts-list">
-        <div class="shortcut-item"><kbd>→</kbd> / <kbd>Space</kbd> <span>Next Slide</span></div>
-        <div class="shortcut-item"><kbd>←</kbd> <span>Previous Slide</span></div>
-        <div class="shortcut-item"><kbd>F</kbd> <span>Toggle Fullscreen</span></div>
-        <div class="shortcut-item"><kbd>Esc</kbd> <span>Close Lightbox / Modal</span></div>
-        <div class="shortcut-item"><kbd>?</kbd> <span>Show Shortcuts</span></div>
       </div>
     </div>
   </div>
