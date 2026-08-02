@@ -243,29 +243,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3200);
   }
 
-  // Touch Swipe Support for Mobile Presentation
+  // Touch & Swipe Support for Mobile Presentation
   let touchStartX = 0;
+  let touchStartY = 0;
   let touchEndX = 0;
+  let touchEndY = 0;
   
   const slidesWrapper = document.querySelector('.slides-wrapper');
   if (slidesWrapper) {
     slidesWrapper.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
     
     slidesWrapper.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
       handleSwipe();
     }, { passive: true });
   }
   
   function handleSwipe() {
     if (lightboxModal && lightboxModal.classList.contains('active')) return;
-    const swipeThreshold = 50;
-    if (touchEndX < touchStartX - swipeThreshold) {
-      nextSlide();
-    } else if (touchEndX > touchStartX + swipeThreshold) {
-      prevSlide();
+    if (shortcutsModal && shortcutsModal.classList.contains('active')) return;
+
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    
+    // Trigger slide transition only if horizontal swipe dominates vertical scroll
+    if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
     }
   }
   
