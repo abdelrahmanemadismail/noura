@@ -90,29 +90,38 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ------------------------------------------------------------------------
      3. Smooth Scrolling & ScrollSpy Active Link Highlighter
      ------------------------------------------------------------------------ */
-  const sections = document.querySelectorAll('section[id]');
+  const navLinksMap = new Map();
+  navLinks.forEach((link) => {
+    const hash = link.getAttribute('href');
+    if (hash && hash.startsWith('#')) {
+      const targetSection = document.querySelector(hash);
+      if (targetSection) {
+        navLinksMap.set(targetSection, link);
+      }
+    }
+  });
 
-  function updateActiveNavLink() {
-    const scrollPosition = window.scrollY + 120;
+  const sectionObserverOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  };
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const activeLink = navLinksMap.get(entry.target);
+        if (activeLink) {
+          navLinks.forEach((l) => l.classList.remove('active'));
+          activeLink.classList.add('active');
+        }
       }
     });
-  }
+  }, sectionObserverOptions);
 
-  window.addEventListener('scroll', updateActiveNavLink);
+  navLinksMap.forEach((_, section) => {
+    sectionObserver.observe(section);
+  });
 
   // Close mobile drawer on link click & smooth scroll anchor
   navLinks.forEach((link) => {
@@ -179,13 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ------------------------------------------------------------------------
      6. Lightbox Modal Image Viewer
      ------------------------------------------------------------------------ */
-  const triggers = document.querySelectorAll('.lightbox-trigger');
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.lightbox-trigger');
+    if (trigger) {
       const imgSrc = trigger.getAttribute('data-img');
-      const title = trigger.getAttribute('data-title') || 'Image Preview';
-      openLightbox(imgSrc, title);
-    });
+      const title = trigger.getAttribute('data-title') || 'High Resolution Preview';
+      if (imgSrc) {
+        openLightbox(imgSrc, title);
+      }
+    }
   });
 
   function openLightbox(src, title) {
