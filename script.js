@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ------------------------------------------------------------------------
-     5. Sample Material Filter Tabs
+     5. Sample Material & Testimonial Filter Tabs
      ------------------------------------------------------------------------ */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const sampleCards = document.querySelectorAll('.sample-card');
@@ -177,6 +177,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const category = card.getAttribute('data-category');
         if (filterValue === 'all' || category === filterValue) {
           card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Testimonial Filter Tabs
+  const tFilterBtns = document.querySelectorAll('.testimonial-filter-btn');
+  const tCards = document.querySelectorAll('.testimonial-item');
+
+  tFilterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tFilterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      tCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = '';
           card.style.opacity = '1';
         } else {
           card.style.display = 'none';
