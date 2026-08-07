@@ -2192,3 +2192,224 @@ kbd {
     border: 1px solid #ddd !important;
   }
 }
+
+/* ==========================================================================
+   Language Selector Dropdown & Trilingual RTL Support
+   ========================================================================== */
+
+.lang-selector-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border: 1px solid var(--border-light);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lang-dropdown-btn:hover {
+  background: rgba(13, 92, 70, 0.12);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.lang-dropdown-btn i.ph-globe {
+  font-size: 1.1rem;
+}
+
+.lang-dropdown-btn .lang-caret {
+  font-size: 0.75rem;
+  transition: transform var(--transition-fast);
+}
+
+.lang-dropdown-btn[aria-expanded="true"] .lang-caret {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 140px;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all var(--transition-fast);
+  z-index: 1000;
+}
+
+html[dir="rtl"] .lang-dropdown-menu {
+  right: auto;
+  left: 0;
+}
+
+.lang-dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+html[dir="rtl"] .lang-option-btn {
+  text-align: right;
+}
+
+.lang-option-btn:hover {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.lang-option-btn.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.lang-option-btn .flag {
+  font-size: 1.1rem;
+}
+
+/* Mobile Language Switcher inside Nav Menu Drawer */
+.mobile-lang-switcher {
+  display: none;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .mobile-lang-switcher {
+    display: flex;
+  }
+}
+
+.mobile-lang-btn {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border-light);
+  background: var(--bg-main);
+  color: var(--text-main);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-lang-btn.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+/* RTL (Right to Left) Arabic Layout Optimizations */
+html[dir="rtl"] {
+  font-family: 'Cairo', 'Amiri', -apple-system, sans-serif;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .hero-title,
+html[dir="rtl"] .slide-title {
+  font-family: 'Cairo', 'Amiri', sans-serif;
+  letter-spacing: normal;
+}
+
+html[dir="rtl"] .quote-box p,
+html[dir="rtl"] .closing-quote,
+html[dir="rtl"] .cover-tagline {
+  font-family: 'Amiri', 'Cairo', serif;
+}
+
+html[dir="rtl"] .timeline-container::before {
+  left: auto;
+  right: 20px;
+}
+
+@media (min-width: 768px) {
+  html[dir="rtl"] .timeline-container::before {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+html[dir="rtl"] .timeline-dot {
+  left: auto;
+  right: 11px;
+}
+
+@media (min-width: 768px) {
+  html[dir="rtl"] .timeline-dot {
+    right: calc(50% - 9px);
+  }
+}
+
+html[dir="rtl"] .brand-badge {
+  flex-direction: row;
+}
+
+html[dir="rtl"] .back-to-top {
+  right: auto;
+  left: 2rem;
+}
+
+@media (max-width: 480px) {
+  html[dir="rtl"] .back-to-top {
+    left: 1.25rem;
+  }
+}
+
+html[dir="rtl"] .featured-ribbon {
+  right: auto;
+  left: 1.25rem;
+}
+
+html[dir="rtl"] .badge-top {
+  right: auto;
+  left: -20px;
+}
+
+html[dir="rtl"] .badge-bottom {
+  left: auto;
+  right: -20px;
+}
+

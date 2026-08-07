@@ -1,5 +1,6 @@
 /* ==========================================================================
    Noura Ehab Portfolio - Interactive Website Controller JavaScript
+   Multilingual Support: English (en), Arabic (ar), German (de)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,6 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
   const backToTopBtn = document.getElementById('back-to-top');
+
+  // Language Dropdown Elements
+  const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+  const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+  const langCurrentLabel = document.getElementById('lang-current-label');
+  const langOptionBtns = document.querySelectorAll('.lang-option-btn');
+  const mobileLangBtns = document.querySelectorAll('.mobile-lang-btn');
 
   // Lightbox Modal Elements
   const lightboxModal = document.getElementById('lightbox-modal');
@@ -24,6 +32,107 @@ document.addEventListener('DOMContentLoaded', () => {
   // Email Copy Buttons
   const headerCopyEmailBtn = document.getElementById('header-copy-email-btn');
   const copyEmailBtn = document.getElementById('copy-email-btn');
+
+  let currentLang = localStorage.getItem('noura_lang') || 'en';
+
+  /* ------------------------------------------------------------------------
+     0. Internationalization (i18n) Language Switcher Engine
+     ------------------------------------------------------------------------ */
+  const langLabels = {
+    en: 'English',
+    ar: 'العربية',
+    de: 'Deutsch'
+  };
+
+  function setLanguage(lang) {
+    if (!translations || !translations[lang]) return;
+    
+    currentLang = lang;
+    localStorage.setItem('noura_lang', lang);
+
+    // Update HTML attributes
+    document.documentElement.setAttribute('lang', lang);
+    const dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('dir', dir);
+
+    // Update Label in Header
+    if (langCurrentLabel) {
+      langCurrentLabel.textContent = langLabels[lang] || 'English';
+    }
+
+    // Update all elements with data-i18n attribute
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const val = translations[lang][key];
+      if (val !== undefined) {
+        // Preserving icons if element has child icons that are strictly icons
+        // If translation string contains HTML tags (like <strong> or <em> or <span>), set innerHTML
+        if (val.includes('<') && val.includes('>')) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
+        }
+      }
+    });
+
+    // Update active class on dropdown options & mobile language buttons
+    langOptionBtns.forEach((btn) => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    mobileLangBtns.forEach((btn) => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // Language Dropdown Event Handlers
+  if (langDropdownBtn && langDropdownMenu) {
+    langDropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = langDropdownMenu.classList.contains('active');
+      langDropdownMenu.classList.toggle('active');
+      langDropdownBtn.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!langDropdownBtn.contains(e.target) && !langDropdownMenu.contains(e.target)) {
+        langDropdownMenu.classList.remove('active');
+        langDropdownBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  langOptionBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.getAttribute('data-lang');
+      if (selectedLang) {
+        setLanguage(selectedLang);
+        if (langDropdownMenu) langDropdownMenu.classList.remove('active');
+        if (langDropdownBtn) langDropdownBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  mobileLangBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.getAttribute('data-lang');
+      if (selectedLang) {
+        setLanguage(selectedLang);
+      }
+    });
+  });
+
+  // Initialize Language on DOM Load
+  setLanguage(currentLang);
 
   /* ------------------------------------------------------------------------
      1. Sticky Header & Back to Top Scroll Behavior
@@ -215,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const trigger = e.target.closest('.lightbox-trigger');
     if (trigger) {
       const imgSrc = trigger.getAttribute('data-img');
-      const title = trigger.getAttribute('data-title') || 'High Resolution Preview';
+      const title = trigger.getAttribute('data-title') || (translations[currentLang] ? translations[currentLang]['lightbox.default_title'] : 'High Resolution Preview');
       if (imgSrc) {
         openLightbox(imgSrc, title);
       }
@@ -252,10 +361,13 @@ document.addEventListener('DOMContentLoaded', () => {
      ------------------------------------------------------------------------ */
   function copyEmailToClipboard() {
     const email = 'ehabnoura4@gmail.com';
+    const successMsg = (translations[currentLang] && translations[currentLang]['toast.copied']) || 'Email ehabnoura4@gmail.com copied to clipboard!';
+    const failMsg = (translations[currentLang] && translations[currentLang]['toast.copy_fail']) || 'Failed to copy. Email: ehabnoura4@gmail.com';
+
     navigator.clipboard.writeText(email).then(() => {
-      showToast('Email ehabnoura4@gmail.com copied to clipboard!');
+      showToast(successMsg);
     }).catch(() => {
-      showToast('Failed to copy. Email: ehabnoura4@gmail.com');
+      showToast(failMsg);
     });
   }
 

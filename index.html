@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -25,29 +25,56 @@
       <a href="#home" class="brand-badge">
         <div class="icon"><i class="ph-bold ph-book-open-text"></i></div>
         <div class="brand-text">
-          <span class="brand-name">Noura Ehab</span>
-          <span class="brand-sub">Teaching Portfolio</span>
+          <span class="brand-name" data-i18n="brand.name">Noura Ehab</span>
+          <span class="brand-sub" data-i18n="brand.sub">Teaching Portfolio</span>
         </div>
       </a>
       
       <nav class="nav-menu" id="nav-menu">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#approach" class="nav-link">Approach</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#materials" class="nav-link">Materials</a>
-        <a href="#testimonials" class="nav-link">Reviews</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
+        <a href="#approach" class="nav-link" data-i18n="nav.approach">Approach</a>
+        <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+        <a href="#materials" class="nav-link" data-i18n="nav.materials">Materials</a>
+        <a href="#testimonials" class="nav-link" data-i18n="nav.reviews">Reviews</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+        
+        <!-- Mobile Language Selector Row -->
+        <div class="mobile-lang-switcher">
+          <button class="mobile-lang-btn active" data-lang="en">🇬🇧 English</button>
+          <button class="mobile-lang-btn" data-lang="ar">🇪🇬 العربية</button>
+          <button class="mobile-lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+        </div>
       </nav>
       
       <div class="header-controls">
+        <!-- Modern Language Selector Dropdown -->
+        <div class="lang-selector-dropdown" id="lang-selector-dropdown">
+          <button class="lang-dropdown-btn" id="lang-dropdown-btn" aria-label="Select language" aria-expanded="false">
+            <i class="ph-bold ph-globe"></i>
+            <span class="lang-current-label" id="lang-current-label">English</span>
+            <i class="ph-bold ph-caret-down lang-caret"></i>
+          </button>
+          <div class="lang-dropdown-menu" id="lang-dropdown-menu">
+            <button class="lang-option-btn active" data-lang="en">
+              <span class="flag">🇬🇧</span> <span class="lang-name">English</span>
+            </button>
+            <button class="lang-option-btn" data-lang="ar">
+              <span class="flag">🇪🇬</span> <span class="lang-name">العربية</span>
+            </button>
+            <button class="lang-option-btn" data-lang="de">
+              <span class="flag">🇩🇪</span> <span class="lang-name">Deutsch</span>
+            </button>
+          </div>
+        </div>
+
         <button class="btn btn-soft" id="header-copy-email-btn" title="Copy Email Address">
-          <i class="ph-bold ph-copy"></i> <span class="btn-text">Copy Email</span>
+          <i class="ph-bold ph-copy"></i> <span class="btn-text" data-i18n="btn.copy_email">Copy Email</span>
         </button>
         <a href="https://wa.me/201225667398" target="_blank" rel="noopener" class="btn btn-primary header-cta">
-          <i class="ph-bold ph-whatsapp-logo"></i> <span>Contact Noura</span>
+          <i class="ph-bold ph-whatsapp-logo"></i> <span data-i18n="btn.contact_noura">Contact Noura</span>
         </a>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
           <i class="ph-bold ph-list"></i>
@@ -68,9 +95,9 @@
     <section class="section hero-section" id="home">
       <div class="container">
         <div class="slide-header-meta">
-          <div class="slide-tag"><i class="ph-bold ph-sparkle"></i> Teaching Portfolio</div>
+          <div class="slide-tag"><i class="ph-bold ph-sparkle"></i> <span data-i18n="hero.tag">Teaching Portfolio</span></div>
           <div class="status-pill">
-            <span class="status-dot"></span> Available for New Students
+            <span class="status-dot"></span> <span data-i18n="hero.status">Available for New Students</span>
           </div>
         </div>
         
@@ -82,26 +109,26 @@
             </div>
             
             <div class="floating-badge badge-top">
-              <i class="ph-fill ph-star"></i> 5.0 Parent Rating
+              <i class="ph-fill ph-star"></i> <span data-i18n="hero.rating_badge">5.0 Parent Rating</span>
             </div>
             
             <div class="avatar-badge">
-              <i class="ph-bold ph-seal-check"></i> 4+ Yrs Online Exp.
+              <i class="ph-bold ph-seal-check"></i> <span data-i18n="hero.exp_badge">4+ Yrs Online Exp.</span>
             </div>
             
             <div class="floating-badge badge-bottom">
-              <i class="ph-bold ph-globe-hemisphere-west"></i> Europe, US & Gulf
+              <i class="ph-bold ph-globe-hemisphere-west"></i> <span data-i18n="hero.location_badge">Europe, US & Gulf</span>
             </div>
           </div>
           
           <div class="cover-details">
-            <h1 class="hero-title">Noura Ehab</h1>
+            <h1 class="hero-title" data-i18n="hero.title">Noura Ehab</h1>
             <div class="spec-badge">
-              <span>Arabic</span> <span class="dot">•</span>
-              <span>Quran & Tajweed</span> <span class="dot">•</span>
-              <span>German Teacher</span>
+              <span data-i18n="hero.spec_arabic">Arabic</span> <span class="dot">•</span>
+              <span data-i18n="hero.spec_quran">Quran & Tajweed</span> <span class="dot">•</span>
+              <span data-i18n="hero.spec_german">German Teacher</span>
             </div>
-            <p class="cover-tagline">
+            <p class="cover-tagline" data-i18n="hero.tagline">
               "Teaching Arabic, Quran & German with Love, Patience, and Professionalism for Non-Native Speakers Worldwide."
             </p>
             <div class="cover-contacts">
@@ -112,16 +139,16 @@
                 <i class="ph-fill ph-whatsapp-logo"></i> +20 122 566 7398
               </a>
               <span class="contact-pill location-pill">
-                <i class="ph-fill ph-globe-hemisphere-west"></i> Online Teaching Worldwide
+                <i class="ph-fill ph-globe-hemisphere-west"></i> <span data-i18n="hero.pill_location">Online Teaching Worldwide</span>
               </span>
             </div>
 
             <div class="hero-actions">
               <a href="https://wa.me/201225667398" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                <i class="ph-bold ph-whatsapp-logo"></i> Book a Free Trial Class
+                <i class="ph-bold ph-whatsapp-logo"></i> <span data-i18n="hero.btn_trial">Book a Free Trial Class</span>
               </a>
               <a href="#about" class="btn btn-soft btn-lg">
-                <i class="ph-bold ph-user"></i> Discover My Approach
+                <i class="ph-bold ph-user"></i> <span data-i18n="hero.btn_approach">Discover My Approach</span>
               </a>
             </div>
           </div>
@@ -132,16 +159,16 @@
     <!-- SECTION 2: ABOUT ME / WHY PARENTS TRUST ME -->
     <section class="section" id="about">
       <div class="container">
-        <h2 class="slide-title">Why Parents <span>Trust Me</span></h2>
-        <p class="slide-subtitle">Dedicated to inspiring young minds and empowering non-native learners with joyful education.</p>
+        <h2 class="slide-title"><span data-i18n="about.title_prefix">Why Parents </span><span class="highlight" data-i18n="about.title_highlight">Trust Me</span></h2>
+        <p class="slide-subtitle" data-i18n="about.subtitle">Dedicated to inspiring young minds and empowering non-native learners with joyful education.</p>
         
         <div class="about-grid">
           <div class="about-left">
             <div class="quote-box">
               <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
-              <p>"Education is not only about knowledge; it is about inspiring hearts, nourishing faith, and building character."</p>
+              <p data-i18n="about.quote">"Education is not only about knowledge; it is about inspiring hearts, nourishing faith, and building character."</p>
             </div>
-            <p class="about-text">
+            <p class="about-text" data-i18n="about.text">
               Welcome! Thank you for visiting my portfolio. I am <strong>Noura Ehab</strong>, an Arabic, Quran, and German teacher specialized in teaching non-native speakers of all age groups. With over four years of online teaching experience, my mission is to render language and Quranic learning enjoyable, interactive, and character-building for every child and student.
             </p>
           </div>
@@ -149,23 +176,23 @@
           <div class="stats-grid">
             <div class="stat-card">
               <div class="stat-icon"><i class="ph-bold ph-graduation-cap"></i></div>
-              <h3>Bachelor's Degree</h3>
-              <p>Faculty of Alsun (Languages)</p>
+              <h3 data-i18n="about.stat1_title">Bachelor's Degree</h3>
+              <p data-i18n="about.stat1_sub">Faculty of Alsun (Languages)</p>
             </div>
             <div class="stat-card">
               <div class="stat-icon"><i class="ph-bold ph-chalkboard-teacher"></i></div>
-              <h3>4+ Years Exp.</h3>
-              <p>Online Arabic & Quran</p>
+              <h3 data-i18n="about.stat2_title">4+ Years Exp.</h3>
+              <p data-i18n="about.stat2_sub">Online Arabic & Quran</p>
             </div>
             <div class="stat-card">
               <div class="stat-icon"><i class="ph-bold ph-globe"></i></div>
-              <h3>Non-Native Focus</h3>
-              <p>Kids & Adults Worldwide</p>
+              <h3 data-i18n="about.stat3_title">Non-Native Focus</h3>
+              <p data-i18n="about.stat3_sub">Kids & Adults Worldwide</p>
             </div>
             <div class="stat-card">
               <div class="stat-icon"><i class="ph-bold ph-translate"></i></div>
-              <h3>German (A1–A2)</h3>
-              <p>Beginner to Elementary</p>
+              <h3 data-i18n="about.stat4_title">German (A1–A2)</h3>
+              <p data-i18n="about.stat4_sub">Beginner to Elementary</p>
             </div>
           </div>
         </div>
@@ -175,39 +202,39 @@
     <!-- SECTION 3: TEACHING SERVICES -->
     <section class="section" id="services">
       <div class="container">
-        <h2 class="slide-title">My Teaching <span>Services</span></h2>
-        <p class="slide-subtitle">Comprehensive, structured courses tailored for non-native kids, teens, and beginner adults.</p>
+        <h2 class="slide-title"><span data-i18n="services.title_prefix">My Teaching </span><span class="highlight" data-i18n="services.title_highlight">Services</span></h2>
+        <p class="slide-subtitle" data-i18n="services.subtitle">Comprehensive, structured courses tailored for non-native kids, teens, and beginner adults.</p>
         
         <div class="services-grid">
           <div class="service-card featured-service">
-            <div class="featured-ribbon"><i class="ph-bold ph-star-fill"></i> Most Requested</div>
+            <div class="featured-ribbon"><i class="ph-bold ph-star-fill"></i> <span data-i18n="services.featured_ribbon">Most Requested</span></div>
             <div class="service-icon"><i class="ph-bold ph-mosque"></i></div>
-            <h3>Quran & Tajweed Recitation</h3>
-            <p>Teaching accurate letter pronunciation (Makharij), Tajweed rules, and Quran memorization with gentle guidance, patience, and repetition.</p>
+            <h3 data-i18n="services.s1_title">Quran & Tajweed Recitation</h3>
+            <p data-i18n="services.s1_desc">Teaching accurate letter pronunciation (Makharij), Tajweed rules, and Quran memorization with gentle guidance, patience, and repetition.</p>
           </div>
           
           <div class="service-card">
             <div class="service-icon"><i class="ph-bold ph-translate"></i></div>
-            <h3>Arabic for Non-Native Speakers</h3>
-            <p>Building strong foundational skills in reading, writing, speaking, and listening using interactive modern curricula and TAFL techniques.</p>
+            <h3 data-i18n="services.s2_title">Arabic for Non-Native Speakers</h3>
+            <p data-i18n="services.s2_desc">Building strong foundational skills in reading, writing, speaking, and listening using interactive modern curricula and TAFL techniques.</p>
           </div>
           
           <div class="service-card">
             <div class="service-icon"><i class="ph-bold ph-pencil-line"></i></div>
-            <h3>Noor Al-Bayan Phonics</h3>
-            <p>Accelerated phonics method tailored for young beginners to quickly master Arabic letter shapes, diacritics, and word formation.</p>
+            <h3 data-i18n="services.s3_title">Noor Al-Bayan Phonics</h3>
+            <p data-i18n="services.s3_desc">Accelerated phonics method tailored for young beginners to quickly master Arabic letter shapes, diacritics, and word formation.</p>
           </div>
           
           <div class="service-card">
             <div class="service-icon"><i class="ph-bold ph-flag-banner"></i></div>
-            <h3>German Language (A1–A2)</h3>
-            <p>Fun, structured German language instruction covering essential grammar, daily conversations, vocabulary build-up, and school homework support.</p>
+            <h3 data-i18n="services.s4_title">German Language (A1–A2)</h3>
+            <p data-i18n="services.s4_desc">Fun, structured German language instruction covering essential grammar, daily conversations, vocabulary build-up, and school homework support.</p>
           </div>
           
           <div class="service-card">
             <div class="service-icon"><i class="ph-bold ph-hands-praying"></i></div>
-            <h3>Islamic Studies for Children</h3>
-            <p>Engaging lessons on daily Du'as, Prophet stories, Islamic manners (Adaab), and basic faith principles designed specifically for young Muslim children.</p>
+            <h3 data-i18n="services.s5_title">Islamic Studies for Children</h3>
+            <p data-i18n="services.s5_desc">Engaging lessons on daily Du'as, Prophet stories, Islamic manners (Adaab), and basic faith principles designed specifically for young Muslim children.</p>
           </div>
         </div>
       </div>
@@ -216,8 +243,8 @@
     <!-- SECTION 4: TEACHING METHODOLOGY -->
     <section class="section" id="approach">
       <div class="container">
-        <h2 class="slide-title">My Interactive <span>Approach</span></h2>
-        <p class="slide-subtitle">Proven techniques that turn language learning into an exciting daily journey.</p>
+        <h2 class="slide-title"><span data-i18n="approach.title_prefix">My Interactive </span><span class="highlight" data-i18n="approach.title_highlight">Approach</span></h2>
+        <p class="slide-subtitle" data-i18n="approach.subtitle">Proven techniques that turn language learning into an exciting daily journey.</p>
         
         <div class="method-grid">
           <div class="method-card">
@@ -225,8 +252,8 @@
               <span class="method-number">01</span>
               <div class="method-icon-wrap"><i class="ph-bold ph-game-controller"></i></div>
             </div>
-            <h3>Interactive Learning & Games</h3>
-            <p>Using digital flashcards, educational games, visual aids, and rewards to keep every session engaging and memorable.</p>
+            <h3 data-i18n="approach.m1_title">Interactive Learning & Games</h3>
+            <p data-i18n="approach.m1_desc">Using digital flashcards, educational games, visual aids, and rewards to keep every session engaging and memorable.</p>
           </div>
           
           <div class="method-card">
@@ -234,8 +261,8 @@
               <span class="method-number">02</span>
               <div class="method-icon-wrap"><i class="ph-bold ph-sliders"></i></div>
             </div>
-            <h3>Individualized Learning Plans</h3>
-            <p>Customizing lesson pace, worksheets, and goals based on each student's unique capacity and learning speed.</p>
+            <h3 data-i18n="approach.m2_title">Individualized Learning Plans</h3>
+            <p data-i18n="approach.m2_desc">Customizing lesson pace, worksheets, and goals based on each student's unique capacity and learning speed.</p>
           </div>
           
           <div class="method-card">
@@ -243,8 +270,8 @@
               <span class="method-number">03</span>
               <div class="method-icon-wrap"><i class="ph-bold ph-chart-bar"></i></div>
             </div>
-            <h3>Monthly Progress Reports</h3>
-            <p>Detailed evaluations sent to parents summarizing recitation speed, vocabulary retention, and areas of growth.</p>
+            <h3 data-i18n="approach.m3_title">Monthly Progress Reports</h3>
+            <p data-i18n="approach.m3_desc">Detailed evaluations sent to parents summarizing recitation speed, vocabulary retention, and areas of growth.</p>
           </div>
           
           <div class="method-card">
@@ -252,8 +279,8 @@
               <span class="method-number">04</span>
               <div class="method-icon-wrap"><i class="ph-bold ph-chats-circle"></i></div>
             </div>
-            <h3>Parent Communication</h3>
-            <p>Maintaining close, ongoing updates with parents to foster a supportive and unified learning ecosystem at home.</p>
+            <h3 data-i18n="approach.m4_title">Parent Communication</h3>
+            <p data-i18n="approach.m4_desc">Maintaining close, ongoing updates with parents to foster a supportive and unified learning ecosystem at home.</p>
           </div>
           
           <div class="method-card">
@@ -261,8 +288,8 @@
               <span class="method-number">05</span>
               <div class="method-icon-wrap"><i class="ph-bold ph-sparkle"></i></div>
             </div>
-            <h3>Positive Reinforcement</h3>
-            <p>Building confidence through patience, gentle corrections, warm encouragement, and custom star achievement badges.</p>
+            <h3 data-i18n="approach.m5_title">Positive Reinforcement</h3>
+            <p data-i18n="approach.m5_desc">Building confidence through patience, gentle corrections, warm encouragement, and custom star achievement badges.</p>
           </div>
           
           <div class="method-card">
@@ -270,8 +297,8 @@
               <span class="method-number">06</span>
               <div class="method-icon-wrap"><i class="ph-bold ph-desktop"></i></div>
             </div>
-            <h3>Classroom Management</h3>
-            <p>Structuring Zoom/online lessons efficiently with clear objectives, active participation, break timers, and visual slides.</p>
+            <h3 data-i18n="approach.m6_title">Classroom Management</h3>
+            <p data-i18n="approach.m6_desc">Structuring Zoom/online lessons efficiently with clear objectives, active participation, break timers, and visual slides.</p>
           </div>
         </div>
       </div>
@@ -280,20 +307,20 @@
     <!-- SECTION 5: EDUCATION & EXPERIENCE -->
     <section class="section" id="experience">
       <div class="container">
-        <div class="slide-tag"><i class="ph-bold ph-graduation-cap"></i> Journey & Credentials</div>
-        <h2 class="slide-title">Education & <span>Experience</span></h2>
-        <p class="slide-subtitle">A solid academic degree combined with four years of dedicated online teaching practice.</p>
+        <div class="slide-tag"><i class="ph-bold ph-graduation-cap"></i> <span data-i18n="experience.tag">Journey & Credentials</span></div>
+        <h2 class="slide-title"><span data-i18n="experience.title_prefix">Education & </span><span class="highlight" data-i18n="experience.title_highlight">Experience</span></h2>
+        <p class="slide-subtitle" data-i18n="experience.subtitle">A solid academic degree combined with four years of dedicated online teaching practice.</p>
         
         <div class="timeline-container">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-meta">
-                <span class="timeline-badge">ACADEMIC DEGREE</span>
+                <span class="timeline-badge" data-i18n="experience.e1_badge">ACADEMIC DEGREE</span>
               </div>
-              <h3>Bachelor's Degree in Languages</h3>
-              <h4>Faculty of Alsun</h4>
-              <p>Graduated with a solid foundation in linguistics, language structure, translation, and cross-cultural communication techniques.</p>
+              <h3 data-i18n="experience.e1_title">Bachelor's Degree in Languages</h3>
+              <h4 data-i18n="experience.e1_sub">Faculty of Alsun</h4>
+              <p data-i18n="experience.e1_desc">Graduated with a solid foundation in linguistics, language structure, translation, and cross-cultural communication techniques.</p>
             </div>
           </div>
           
@@ -301,11 +328,11 @@
             <div class="timeline-dot highlight-dot"></div>
             <div class="timeline-content highlight-content">
               <div class="timeline-meta">
-                <span class="timeline-badge active-badge">2022 – PRESENT (4+ YEARS)</span>
+                <span class="timeline-badge active-badge" data-i18n="experience.e2_badge">2022 – PRESENT (4+ YEARS)</span>
               </div>
-              <h3>Arabic & Quran Teacher for Non-Native Speakers</h3>
-              <h4>Online Academies & Private Tutoring</h4>
-              <p>Delivered hundreds of online lessons for non-native students across Europe, USA, and Gulf countries, specializing in Tajweed, Noor Al-Bayan, and TAFL methodologies.</p>
+              <h3 data-i18n="experience.e2_title">Arabic & Quran Teacher for Non-Native Speakers</h3>
+              <h4 data-i18n="experience.e2_sub">Online Academies & Private Tutoring</h4>
+              <p data-i18n="experience.e2_desc">Delivered hundreds of online lessons for non-native students across Europe, USA, and Gulf countries, specializing in Tajweed, Noor Al-Bayan, and TAFL methodologies.</p>
             </div>
           </div>
           
@@ -313,11 +340,11 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-meta">
-                <span class="timeline-badge">SPECIALIZATION</span>
+                <span class="timeline-badge" data-i18n="experience.e3_badge">SPECIALIZATION</span>
               </div>
-              <h3>German Teacher (A1 – A2 Level)</h3>
-              <h4>Beginner Language Instruction</h4>
-              <p>Delivering interactive German fundamentals, phonetics, and grammar modules for young students and beginner adults.</p>
+              <h3 data-i18n="experience.e3_title">German Teacher (A1 – A2 Level)</h3>
+              <h4 data-i18n="experience.e3_sub">Beginner Language Instruction</h4>
+              <p data-i18n="experience.e3_desc">Delivering interactive German fundamentals, phonetics, and grammar modules for young students and beginner adults.</p>
             </div>
           </div>
         </div>
@@ -327,45 +354,45 @@
     <!-- SECTION 6: LANGUAGES & SKILLS -->
     <section class="section" id="skills">
       <div class="container">
-        <h2 class="slide-title">Languages & <span>Core Skills</span></h2>
-        <p class="slide-subtitle">Equipped with native fluency, multilingual ability, and modern educational tech tools.</p>
+        <h2 class="slide-title"><span data-i18n="skills.title_prefix">Languages & </span><span class="highlight" data-i18n="skills.title_highlight">Core Skills</span></h2>
+        <p class="slide-subtitle" data-i18n="skills.subtitle">Equipped with native fluency, multilingual ability, and modern educational tech tools.</p>
         
         <div class="skills-layout">
           <div class="skills-box">
-            <h3><i class="ph-bold ph-translate"></i> Language Proficiency</h3>
+            <h3><i class="ph-bold ph-translate"></i> <span data-i18n="skills.lang_box_title">Language Proficiency</span></h3>
             <div class="lang-list">
               <div class="lang-item">
                 <div class="lang-header">
-                  <span class="lang-name">Arabic 🇪🇬</span>
-                  <span class="lang-level-badge">Native Speaker</span>
+                  <span class="lang-name" data-i18n="skills.l1_name">Arabic 🇪🇬</span>
+                  <span class="lang-level-badge" data-i18n="skills.l1_level">Native Speaker</span>
                 </div>
               </div>
               <div class="lang-item">
                 <div class="lang-header">
-                  <span class="lang-name">German 🇩🇪</span>
-                  <span class="lang-level-badge">Very Good (A2+)</span>
+                  <span class="lang-name" data-i18n="skills.l2_name">German 🇩🇪</span>
+                  <span class="lang-level-badge" data-i18n="skills.l2_level">Very Good (A2+)</span>
                 </div>
               </div>
               <div class="lang-item">
                 <div class="lang-header">
-                  <span class="lang-name">English 🇬🇧</span>
-                  <span class="lang-level-badge">Conversational</span>
+                  <span class="lang-name" data-i18n="skills.l3_name">English 🇬🇧</span>
+                  <span class="lang-level-badge" data-i18n="skills.l3_level">Conversational</span>
                 </div>
               </div>
             </div>
           </div>
           
           <div class="skills-box">
-            <h3><i class="ph-bold ph-gear-six"></i> Professional Skills</h3>
+            <h3><i class="ph-bold ph-gear-six"></i> <span data-i18n="skills.prof_box_title">Professional Skills</span></h3>
             <div class="skills-tags">
-              <span class="skill-tag"><i class="ph-bold ph-video-camera"></i> Online Teaching (Zoom / Teams)</span>
-              <span class="skill-tag"><i class="ph-bold ph-chalkboard-teacher"></i> Lesson Planning</span>
-              <span class="skill-tag"><i class="ph-bold ph-users-three"></i> Classroom Management</span>
-              <span class="skill-tag"><i class="ph-bold ph-certificate"></i> TAFL & Phonics</span>
-              <span class="skill-tag"><i class="ph-bold ph-book-bookmark"></i> Quran & Tajweed Rules</span>
-              <span class="skill-tag"><i class="ph-bold ph-palette"></i> Canva Visual Aids</span>
-              <span class="skill-tag"><i class="ph-bold ph-microsoft-word-logo"></i> Microsoft Office</span>
-              <span class="skill-tag"><i class="ph-bold ph-chart-line-up"></i> Progress Tracking</span>
+              <span class="skill-tag"><i class="ph-bold ph-video-camera"></i> <span data-i18n="skills.s1">Online Teaching (Zoom / Teams)</span></span>
+              <span class="skill-tag"><i class="ph-bold ph-chalkboard-teacher"></i> <span data-i18n="skills.s2">Lesson Planning</span></span>
+              <span class="skill-tag"><i class="ph-bold ph-users-three"></i> <span data-i18n="skills.s3">Classroom Management</span></span>
+              <span class="skill-tag"><i class="ph-bold ph-certificate"></i> <span data-i18n="skills.s4">TAFL & Phonics</span></span>
+              <span class="skill-tag"><i class="ph-bold ph-book-bookmark"></i> <span data-i18n="skills.s5">Quran & Tajweed Rules</span></span>
+              <span class="skill-tag"><i class="ph-bold ph-palette"></i> <span data-i18n="skills.s6">Canva Visual Aids</span></span>
+              <span class="skill-tag"><i class="ph-bold ph-microsoft-word-logo"></i> <span data-i18n="skills.s7">Microsoft Office</span></span>
+              <span class="skill-tag"><i class="ph-bold ph-chart-line-up"></i> <span data-i18n="skills.s8">Progress Tracking</span></span>
             </div>
           </div>
         </div>
@@ -375,80 +402,80 @@
     <!-- SECTION 7: SAMPLE MATERIALS -->
     <section class="section" id="materials">
       <div class="container">
-        <h2 class="slide-title">Sample <span>Teaching Materials</span></h2>
-        <p class="slide-subtitle">Authentic lesson reports, custom worksheets, and interactive cards created by Noura. <em>Click any card to view in high resolution.</em></p>
+        <h2 class="slide-title"><span data-i18n="materials.title_prefix">Sample </span><span class="highlight" data-i18n="materials.title_highlight">Teaching Materials</span></h2>
+        <p class="slide-subtitle" data-i18n="materials.subtitle">Authentic lesson reports, custom worksheets, and interactive cards created by Noura. <em>Click any card to view in high resolution.</em></p>
         
         <!-- Interactive Category Filter Tabs -->
         <div class="filter-tabs" id="material-filters">
-          <button class="filter-btn active" data-filter="all"><i class="ph-bold ph-squares-four"></i> All Materials</button>
-          <button class="filter-btn" data-filter="reports"><i class="ph-bold ph-file-text"></i> Progress Reports</button>
-          <button class="filter-btn" data-filter="worksheets"><i class="ph-bold ph-pencil-line"></i> Worksheets</button>
-          <button class="filter-btn" data-filter="flashcards"><i class="ph-bold ph-cards"></i> Tajweed & Cards</button>
+          <button class="filter-btn active" data-filter="all"><i class="ph-bold ph-squares-four"></i> <span data-i18n="materials.f_all">All Materials</span></button>
+          <button class="filter-btn" data-filter="reports"><i class="ph-bold ph-file-text"></i> <span data-i18n="materials.f_reports">Progress Reports</span></button>
+          <button class="filter-btn" data-filter="worksheets"><i class="ph-bold ph-pencil-line"></i> <span data-i18n="materials.f_worksheets">Worksheets</span></button>
+          <button class="filter-btn" data-filter="flashcards"><i class="ph-bold ph-cards"></i> <span data-i18n="materials.f_cards">Tajweed & Cards</span></button>
         </div>
 
         <div class="samples-grid">
           <!-- Real German Progress Report -->
           <div class="sample-card lightbox-trigger" data-category="reports" data-img="assets/progress_report_3.png" data-title="German Lesson Report (Bericht über die Unterrichtsstunde)">
-            <div class="sample-badge"><i class="ph-bold ph-file-text"></i> Lesson Report</div>
+            <div class="sample-badge"><i class="ph-bold ph-file-text"></i> <span data-i18n="materials.badge_report">Lesson Report</span></div>
             <div class="sample-img-wrapper">
               <img src="assets/progress_report_3.png" alt="German Student Lesson Report - Jana">
-              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> View Full Details</span>
+              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> <span data-i18n="materials.zoom_text">View Full Details</span></span>
             </div>
             <div class="sample-info">
-              <h4>German Lesson Report (Bericht)</h4>
-              <p>Bilingual German-Arabic evaluation for student <strong>Jana</strong> detailing Quran & Arabic progress.</p>
+              <h4 data-i18n="materials.m1_title">German Lesson Report (Bericht)</h4>
+              <p data-i18n="materials.m1_desc">Bilingual German-Arabic evaluation for student <strong>Jana</strong> detailing Quran & Arabic progress.</p>
             </div>
           </div>
 
           <!-- Real Arabic Progress Report -->
           <div class="sample-card lightbox-trigger" data-category="reports" data-img="assets/progress_report_2.png" data-title="Arabic Trial Lesson Report (تقرير حصة تجريبية)">
-            <div class="sample-badge"><i class="ph-bold ph-file-text"></i> Lesson Report</div>
+            <div class="sample-badge"><i class="ph-bold ph-file-text"></i> <span data-i18n="materials.badge_report">Lesson Report</span></div>
             <div class="sample-img-wrapper">
               <img src="assets/progress_report_2.png" alt="Arabic Trial Lesson Report - Baraa">
-              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> View Full Details</span>
+              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> <span data-i18n="materials.zoom_text">View Full Details</span></span>
             </div>
             <div class="sample-info">
-              <h4>Arabic Trial Lesson Report</h4>
-              <p>Colorful progress report for student <strong>Baraa</strong> evaluating reading & active participation.</p>
+              <h4 data-i18n="materials.m2_title">Arabic Trial Lesson Report</h4>
+              <p data-i18n="materials.m2_desc">Colorful progress report for student <strong>Baraa</strong> evaluating reading & active participation.</p>
             </div>
           </div>
           
           <!-- Arabic & Noor Al-Bayan Worksheet -->
           <div class="sample-card lightbox-trigger" data-category="worksheets" data-img="assets/arabic_worksheet.png" data-title="Arabic Alphabet & Phonics Worksheet">
-            <div class="sample-badge"><i class="ph-bold ph-pencil-line"></i> Worksheet</div>
+            <div class="sample-badge"><i class="ph-bold ph-pencil-line"></i> <span data-i18n="materials.badge_worksheet">Worksheet</span></div>
             <div class="sample-img-wrapper">
               <img src="assets/arabic_worksheet.png" alt="Arabic & Noor Al-Bayan Worksheet Sample">
-              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> View Full Details</span>
+              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> <span data-i18n="materials.zoom_text">View Full Details</span></span>
             </div>
             <div class="sample-info">
-              <h4>Arabic & Noor Al-Bayan Phonics</h4>
-              <p>Custom letter tracing sheets and animal vocabulary designed for non-native kids.</p>
+              <h4 data-i18n="materials.m3_title">Arabic & Noor Al-Bayan Phonics</h4>
+              <p data-i18n="materials.m3_desc">Custom letter tracing sheets and animal vocabulary designed for non-native kids.</p>
             </div>
           </div>
           
           <!-- Tajweed & Flashcards -->
           <div class="sample-card lightbox-trigger" data-category="flashcards" data-img="assets/tajweed_flashcard.png" data-title="Tajweed & Vocabulary Flashcards">
-            <div class="sample-badge"><i class="ph-bold ph-cards"></i> Flashcards</div>
+            <div class="sample-badge"><i class="ph-bold ph-cards"></i> <span data-i18n="materials.badge_cards">Flashcards</span></div>
             <div class="sample-img-wrapper">
               <img src="assets/tajweed_flashcard.png" alt="Tajweed & German Educational Cards">
-              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> View Full Details</span>
+              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> <span data-i18n="materials.zoom_text">View Full Details</span></span>
             </div>
             <div class="sample-info">
-              <h4>Tajweed & Vocabulary Cards</h4>
-              <p>Color-coded Tajweed rules and German vocabulary flashcards designed in Canva.</p>
+              <h4 data-i18n="materials.m4_title">Tajweed & Vocabulary Cards</h4>
+              <p data-i18n="materials.m4_desc">Color-coded Tajweed rules and German vocabulary flashcards designed in Canva.</p>
             </div>
           </div>
 
           <!-- Monthly Rating Sheet -->
           <div class="sample-card lightbox-trigger" data-category="reports" data-img="assets/progress_report.png" data-title="Student Progress Evaluation Template">
-            <div class="sample-badge"><i class="ph-bold ph-file-text"></i> Evaluation</div>
+            <div class="sample-badge"><i class="ph-bold ph-file-text"></i> <span data-i18n="materials.badge_eval">Evaluation</span></div>
             <div class="sample-img-wrapper">
               <img src="assets/progress_report.png" alt="Student Progress Report Template">
-              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> View Full Details</span>
+              <span class="zoom-badge"><i class="ph-bold ph-magnifying-glass-plus"></i> <span data-i18n="materials.zoom_text">View Full Details</span></span>
             </div>
             <div class="sample-info">
-              <h4>Monthly Evaluation Sheet</h4>
-              <p>Structured rating templates featuring recitation scores, behavior stars, and teacher feedback.</p>
+              <h4 data-i18n="materials.m5_title">Monthly Evaluation Sheet</h4>
+              <p data-i18n="materials.m5_desc">Structured rating templates featuring recitation scores, behavior stars, and teacher feedback.</p>
             </div>
           </div>
         </div>
@@ -460,9 +487,9 @@
       <div class="container">
         <!-- Section Header -->
         <div class="testimonials-header-block">
-          <div class="slide-tag"><i class="ph-bold ph-heart"></i> Client Satisfaction</div>
-          <h2 class="slide-title">What Parents <span>Say</span></h2>
-          <p class="slide-subtitle">Authentic written reviews and feedback screenshots from student families across Germany & Europe.</p>
+          <div class="slide-tag"><i class="ph-bold ph-heart"></i> <span data-i18n="testimonials.tag">Client Satisfaction</span></div>
+          <h2 class="slide-title"><span data-i18n="testimonials.title_prefix">What Parents </span><span class="highlight" data-i18n="testimonials.title_highlight">Say</span></h2>
+          <p class="slide-subtitle" data-i18n="testimonials.subtitle">Authentic written reviews and feedback screenshots from student families across Germany & Europe.</p>
         </div>
 
         <!-- Bento Grid Container -->
@@ -476,17 +503,17 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">والدة لؤي وأحمد & والدة ليان</span>
-                  <span class="author-sub">طبيعة التعامل والتأسيس</span>
+                  <span class="author-name" data-i18n="testimonials.t1_author">والدة لؤي وأحمد & والدة ليان</span>
+                  <span class="author-sub" data-i18n="testimonials.t1_sub">طبيعة التعامل والتأسيس</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <p class="bento-card-quote rtl-text">
+            <p class="bento-card-quote" data-i18n="testimonials.t1_quote">
               "كنتي متميزة بالعطاء والمرح.. كنتي أنسة وأخت وصديقة مع أولادي.. أجمل وأشطر مس ألماني، أسلوبها التربوي المميز في التعامل مع الأولاد وشرحها الدقيق وتوصيلها للمعلومة بجد تحفة ❤️🩵"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view original WhatsApp screenshot <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.view_img">Click to view original WhatsApp screenshot</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -498,17 +525,17 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">والدة يارا</span>
-                  <span class="author-sub">تأسيس لغة عربية</span>
+                  <span class="author-name" data-i18n="testimonials.t2_author">والدة يارا</span>
+                  <span class="author-sub" data-i18n="testimonials.t2_sub">تأسيس لغة عربية</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <p class="bento-card-quote rtl-text">
+            <p class="bento-card-quote" data-i18n="testimonials.t2_quote">
               "أستاذة نورا طريقة شرح بسيطة وتحفيظ سهل من غير ضغط عالأطفال خاصة أنهم ما تعلموا عربي مع حدا قبلك. متفهمة ولطيفة جداً ."
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view original WhatsApp screenshot <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.view_img">Click to view original WhatsApp screenshot</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -520,17 +547,17 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">والدة نورا وليلى</span>
-                  <span class="author-sub">عربية وقرآن كريم</span>
+                  <span class="author-name" data-i18n="testimonials.t3_author">والدة نورا وليلى</span>
+                  <span class="author-sub" data-i18n="testimonials.t3_sub">عربية وقرآن كريم</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <p class="bento-card-quote rtl-text">
+            <p class="bento-card-quote" data-i18n="testimonials.t3_quote">
               "أسلوب الشرح وطريقة المعاملة ممتازة جداً 🥰 برغم صعوبة اللغة العربية وتحفيظ القرآن لبناتي، لكن شرحك ومعاملتك معاهم أصبحوا قادرين على التكلم والكتابة وحفظ القرآن الكريم 🤲🏻🥰"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view original WhatsApp screenshot <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.view_img">Click to view original WhatsApp screenshot</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -542,17 +569,17 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">والدة بيلار & والدة شهد</span>
-                  <span class="author-sub">أخلاق ومتابعة ممتازة</span>
+                  <span class="author-name" data-i18n="testimonials.t4_author">والدة بيلار & والدة شهد</span>
+                  <span class="author-sub" data-i18n="testimonials.t4_sub">أخلاق ومتابعة ممتازة</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <p class="bento-card-quote rtl-text">
+            <p class="bento-card-quote" data-i18n="testimonials.t4_quote">
               "بصراحة كلمة ممتازة قليلة عليكِ.. شرحك فوق الممتاز وتعاملك الخلوق مع الأطفال هو اللي يميّزك. ابنتي استفادت منكِ كثيراً وأحبت المادة معكِ وننصح أي أسرة بالتعامل معكِ بدون تردد 🌹🤍"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view original WhatsApp screenshot <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.view_img">Click to view original WhatsApp screenshot</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -564,17 +591,17 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">أم محمد</span>
-                  <span class="author-sub">حفظ القرآن الكريم</span>
+                  <span class="author-name" data-i18n="testimonials.t5_author">أم محمد</span>
+                  <span class="author-sub" data-i18n="testimonials.t5_sub">حفظ القرآن الكريم</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <p class="bento-card-quote rtl-text">
+            <p class="bento-card-quote" data-i18n="testimonials.t5_quote">
               "نتقدم إليكِ بجزيل الشكر والتقدير على جهودك العظيمة مع أولادنا في حفظ كتاب الله عز وجل. شكراً على صبرك معهم وتشجيعك الدائم، وشكراً لأنك غرستِ حب القرآن في قلوبهم 🌿"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view original WhatsApp screenshot <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.view_img">Click to view original WhatsApp screenshot</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -586,17 +613,17 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">والدة قيس</span>
-                  <span class="author-sub">حرص وملاحظات للأهل</span>
+                  <span class="author-name" data-i18n="testimonials.t6_author">والدة قيس</span>
+                  <span class="author-sub" data-i18n="testimonials.t6_sub">حرص وملاحظات للأهل</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <p class="bento-card-quote rtl-text">
+            <p class="bento-card-quote" data-i18n="testimonials.t6_quote">
               "أفضل مدرسة وأحسن أسلوب.. ممتازة جداً بالتعامل مع الأطفال ودائماً حريصة على تعليم الطفل وأخلاقه وإعطاء ملاحظات للأهل.. جزاكِ الله خيراً 🌸🌸"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view original WhatsApp screenshot <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.view_img">Click to view original WhatsApp screenshot</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -608,17 +635,17 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">والدة أحد الطلاب</span>
-                  <span class="author-sub">حب الأطفال وتشجيعهم</span>
+                  <span class="author-name" data-i18n="testimonials.t7_author">والدة أحد الطلاب</span>
+                  <span class="author-sub" data-i18n="testimonials.t7_sub">حب الأطفال وتشجيعهم</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <p class="bento-card-quote rtl-text">
+            <p class="bento-card-quote" data-i18n="testimonials.t7_quote">
               "كنتي معلمة ممتازة ما شاء الله والولاد حبوكي جداً وعرفتي تبدأي معاهم كويس وتشديهم للدرس.. جزاكِ الله كل خير وربنا يوفقك دايماً ❤️❤️🫂"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view original WhatsApp screenshot <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.view_img">Click to view original WhatsApp screenshot</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -630,18 +657,18 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">Mother of 3 Students — Germany 🇩🇪</span>
-                  <span class="author-sub">Special Care & ADS/ADHD Support</span>
+                  <span class="author-name" data-i18n="testimonials.t8_author">Mother of 3 Students — Germany 🇩🇪</span>
+                  <span class="author-sub" data-i18n="testimonials.t8_sub">Special Care & ADS/ADHD Support</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <h4 class="bento-card-title">Detailed Feedback: Private German Tutoring & ADS Progress</h4>
-            <p class="bento-card-quote">
+            <h4 class="bento-card-title" data-i18n="testimonials.t8_title">Detailed Feedback: Private German Tutoring & ADS Progress</h4>
+            <p class="bento-card-quote" data-i18n="testimonials.t8_quote">
               "Du kannst so unglaublich gut Deutsch, alles ist super verständlich, und es ist einfach der absolute Luxus, eine Privatlehrerin zu haben... Ich möchte hier noch einmal ganz besonders betonen, dass du alle meine drei Kinder betreust – und darunter auch mein Sohn mit ADS. Du hast so viel Geduld und schaffst es, ihn zu motivieren!"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> Click to view full German handwritten letter <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.t8_view">Click to view full German handwritten letter</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -653,18 +680,18 @@
               <div class="bento-card-author">
                 <i class="ph-fill ph-user-circle"></i>
                 <div>
-                  <span class="author-name">مدام جنة (والدة حنظلة وجنة) — ألمانيا 🇩🇪</span>
-                  <span class="author-sub">مراعاة الحالات الخاصة (ADS)</span>
+                  <span class="author-name" data-i18n="testimonials.t9_author">مدام جنة (والدة حنظلة وجنة) — ألمانيا 🇩🇪</span>
+                  <span class="author-sub" data-i18n="testimonials.t9_sub">مراعاة الحالات الخاصة (ADS)</span>
                 </div>
               </div>
               <div class="bento-card-stars">★★★★★</div>
             </div>
-            <h4 class="bento-card-title rtl-text">رسالة شكر وتوصية خاصة للأطفال غير الناطقين بالعربية</h4>
-            <p class="bento-card-quote rtl-text">
+            <h4 class="bento-card-title" data-i18n="testimonials.t9_title">رسالة شكر وتوصية خاصة للأطفال غير الناطقين بالعربية</h4>
+            <p class="bento-card-quote" data-i18n="testimonials.t9_quote">
               "اختيارنا لدروسك عبر الإنترنت هو أفضل قرار اتخذناه. لغتك الألمانية ممتازة للغاية وكل شيء تشرحينه يكون مفهوماً وواضحاً جداً.. أود أن أؤكد هنا بشكل خاص على أنك تُدرسين أطفالي الثلاثة – ومن بينهم ابني الذي يعاني من اضطراب نقص الانتباه (ADS). أنت تتحملين هذا التحدي وتظهرين صبراً هائلاً. شكراً جزيلاً لك على صبرك، وأسلوبك اللطيف والمحب، وعملك القيم. 🤍"
             </p>
             <div class="bento-card-footer">
-              <span class="view-img-link"><i class="ph-bold ph-image"></i> اضغط لمشاهدة صورة الخطاب الأصلي كاملاً <i class="ph-bold ph-arrow-up-right"></i></span>
+              <span class="view-img-link"><i class="ph-bold ph-image"></i> <span data-i18n="testimonials.t9_view">اضغط لمشاهدة صورة الخطاب الأصلي كاملاً</span> <i class="ph-bold ph-arrow-up-right"></i></span>
             </div>
           </div>
 
@@ -676,24 +703,24 @@
     <!-- SECTION 9: THANK YOU & CONTACT -->
     <section class="section contact-section" id="contact">
       <div class="container">
-        <h2 class="slide-title">Let's Start Your <span>Learning Journey</span></h2>
+        <h2 class="slide-title"><span data-i18n="contact.title_prefix">Let's Start Your </span><span class="highlight" data-i18n="contact.title_highlight">Learning Journey</span></h2>
         
         <div class="contact-layout">
           <div class="contact-left">
             <div class="closing-quote">
               <i class="ph-fill ph-quotes"></i>
-              "Every child deserves a teacher who believes in them, guides them with patience, and inspires their love for learning."
+              <span data-i18n="contact.quote">"Every child deserves a teacher who believes in them, guides them with patience, and inspires their love for learning."</span>
             </div>
-            <div class="closing-thanks">
+            <div class="closing-thanks" data-i18n="contact.thanks">
               Thank you for taking the time to review my portfolio!
             </div>
             
             <div class="contact-action-group">
               <a href="https://wa.me/201225667398" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                <i class="ph-bold ph-whatsapp-logo"></i> Start Direct Chat on WhatsApp
+                <i class="ph-bold ph-whatsapp-logo"></i> <span data-i18n="contact.btn_whatsapp">Start Direct Chat on WhatsApp</span>
               </a>
               <button class="btn btn-soft btn-lg" id="copy-email-btn">
-                <i class="ph-bold ph-copy"></i> Copy Email Address
+                <i class="ph-bold ph-copy"></i> <span data-i18n="contact.btn_copy_email">Copy Email Address</span>
               </button>
             </div>
 
@@ -710,9 +737,9 @@
           <div class="qr-card">
             <!-- WhatsApp QR Code Image -->
             <img src="assets/wa-qr-code.svg" alt="WhatsApp QR Code" class="qr-code-img">
-            <p class="qr-text">Scan with camera to chat on WhatsApp</p>
+            <p class="qr-text" data-i18n="contact.qr_text">Scan with camera to chat on WhatsApp</p>
             <a href="https://wa.me/201225667398" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 0.75rem; width: 100%; justify-content: center;">
-              <i class="ph-bold ph-whatsapp-logo"></i> Open WhatsApp
+              <i class="ph-bold ph-whatsapp-logo"></i> <span data-i18n="contact.btn_open_wa">Open WhatsApp</span>
             </a>
           </div>
         </div>
@@ -728,37 +755,37 @@
         <a href="#home" class="brand-badge">
           <div class="icon"><i class="ph-bold ph-book-open-text"></i></div>
           <div class="brand-text">
-            <span class="brand-name">Noura Ehab</span>
-            <span class="brand-sub">Arabic, Quran & German Teacher</span>
+            <span class="brand-name" data-i18n="brand.name">Noura Ehab</span>
+            <span class="brand-sub" data-i18n="hero.spec_quran">Arabic, Quran & German Teacher</span>
           </div>
         </a>
-        <p class="footer-tagline">Teaching Arabic, Quran & German with love, patience, and professionalism for non-native speakers worldwide.</p>
+        <p class="footer-tagline" data-i18n="footer.tagline">Teaching Arabic, Quran & German with love, patience, and professionalism for non-native speakers worldwide.</p>
       </div>
 
       <div class="footer-links">
-        <h4>Quick Navigation</h4>
+        <h4 data-i18n="footer.nav_title">Quick Navigation</h4>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#approach">Methodology</a></li>
-          <li><a href="#experience">Credentials</a></li>
-          <li><a href="#materials">Materials</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" data-i18n="nav.about">About Me</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="#approach" data-i18n="nav.approach">Methodology</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Credentials</a></li>
+          <li><a href="#materials" data-i18n="nav.materials">Materials</a></li>
+          <li><a href="#testimonials" data-i18n="nav.reviews">Reviews</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
 
       <div class="footer-contact">
-        <h4>Get In Touch</h4>
+        <h4 data-i18n="footer.contact_title">Get In Touch</h4>
         <p><i class="ph-fill ph-envelope-simple"></i> ehabnoura4@gmail.com</p>
         <p><i class="ph-fill ph-whatsapp-logo"></i> +20 122 566 7398</p>
-        <p><i class="ph-fill ph-globe-hemisphere-west"></i> Online Teaching Worldwide</p>
+        <p><i class="ph-fill ph-globe-hemisphere-west"></i> <span data-i18n="hero.pill_location">Online Teaching Worldwide</span></p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 Noura Ehab. All rights reserved. | Professional Teaching Portfolio</p>
+      <p data-i18n="footer.copyright">&copy; 2026 Noura Ehab. All rights reserved. | Professional Teaching Portfolio</p>
     </div>
   </footer>
 
@@ -781,10 +808,11 @@
 
   <!-- Toast Notification Container -->
   <div class="toast-notification" id="toast-notification">
-    <i class="ph-bold ph-check-circle"></i> <span id="toast-message">Copied to clipboard!</span>
+    <i class="ph-bold ph-check-circle"></i> <span id="toast-message" data-i18n="toast.copied">Copied to clipboard!</span>
   </div>
 
-  <!-- JavaScript Controller -->
+  <!-- JavaScript Controller & Internationalization -->
+  <script src="translations.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
